@@ -2,383 +2,159 @@
 
 &nbsp;
 
-## Break/Continue
+## Github Pages
 
-Having worked with JavaScript for a long while now, there are times when you will find the need to break out of a loop when a certain condition is met, or just skip the current iteration to the next iteration for one reason or another.
+https://pages.github.com/#user-site
 
-These situations can be solved by using the following statements:
+https://pages.github.com/
 
-1. break statement
-2. continue statement
+GitHub Pages is a static site hosting service that takes HTML, CSS, and JavaScript files straight from a repository on GitHub, optionally runs the files
 
-Break Statement
-
-The break statement is used to terminate a loop and get out of it. Then, the code following the loop code block will be executed next (if any).
-
-It is usually used inside a conditional statement whereby when a condition is met, for one reason or another, it stops the loop and gets out of it. How it is done is by simply writing break.
-
-Syntax:
-
-    break;
-
-Example:
-
-    for (let i = 0; i < 8; i++) {
-    if (i === 4) { break; }
-    console.log("Iteration i: " + i);
-    }
-
-    // Output:
-    Iteration i: 0
-    Iteration i: 1
-    Iteration i: 2
-    Iteration i: 3
-
-Without the break statement, the output will typically appear as follow:
-
-    // Output:
-    Iteration i: 0
-    Iteration i: 1
-    Iteration i: 2
-    Iteration i: 3
-    Iteration i: 4
-    Iteration i: 5
-    Iteration i: 6
-    Iteration i: 7
-
-### The break statement "jumps out" of a loop.
+You can host your site on GitHub's github.io domain or your own custom domain.
 
 &nbsp;
 
-The continue statement is used to skip an iteration of the loop.
+## HTML, CSS Review
 
-This statement too, can be used in the switch statements.
+Hypertext Markup Language (HTML) is the standard markup language for documents designed to be displayed in a web browser. It can be assisted by technologies such as Cascading Style Sheets (CSS) and scripting languages such as JavaScript.
 
-The continue statement basically breaks one iteration of the loop, if a specified condition is met, and continues with the next iteration of the loop. How it is written is similar to the break statement.
-
-Syntax:
-
-    continue;
-
-Example:
-
-    for (let i = 0; i < 8; i++) {
-    if (i === 4) { continue; }
-    console.log("Iteration i: " + i);
-    }
-
-    // Output:
-    Iteration i: 0
-    Iteration i: 1
-    Iteration i: 2
-    Iteration i: 3
-    Iteration i: 5
-    Iteration i: 6
-    Iteration i: 7
-
-Using the example above, we can see that the iteration 4 is skipped because we wrote that when it is 4, we will continue to the next iteration. Thus, its turn is skipped from being printed out.
-
-### The continue statement "jumps over" one iteration in the loop.
+Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation of a document written in a markup language such as HTML. CSS is a cornerstone technology of the World Wide Web, alongside HTML and JavaScript.
 
 &nbsp;
 
-## Switch Statements
+## DOM Manipulation (Document Object Model)
 
-The switch statement is used to perform different actions based on different conditions.
+The Document Object Model (DOM) is the data representation of the objects that comprise the structure and content of a document on the web.
 
-Syntax:
+The Document Object Model (DOM) is a programming interface for HTML and XML documents. It represents the page so that programs can change the document structure, style, and content. The DOM represents the document as nodes and objects. That way, programming languages can connect to the page.
 
-    switch(expression) {
-    case x:
-        // code block
-        break;
-    case y:
-        // code block
-        break;
-    default:
-        // code block
-    }
-
-This is how it works:
-
-- The switch expression is evaluated once.
-- The value of the expression is compared with the values of each case.
-- If there is a match, the associated block of code is executed.
-- If there is no match, the default code block is executed.
-
-The switch statement evaluates an expression, matching the expression's value to a case clause, and executes statements associated with that case, as well as statements in cases that follow the matching case.
-
-    const expr = 'Papayas';
-    switch (expr) {
-    case 'Oranges':
-        console.log('Oranges are $0.59 a pound.');
-        break;
-    case 'Mangoes':
-    case 'Papayas':
-        console.log('Mangoes and papayas are $2.79 a pound.');
-        // expected output: "Mangoes and papayas are $2.79 a pound."
-        break;
-    default:
-        console.log(`Sorry, we are out of ${expr}.`);
-    }
-
-    // Log: "Mangoes and papayas are $2.79 a pound."
+A Web page is a document. This document can be either displayed in the browser window or as the HTML source. But it is the same document in both cases. The Document Object Model (DOM) represents that same document so it can be manipulated. The DOM is an object-oriented representation of the web page, which can be modified with a scripting language such as JavaScript.
 
 &nbsp;
 
-## .reduce / .filter / .map
+## querySelector();
 
-Map, filter and reduce are essentially just some of the most well-known, easy to use, higher-order functions that run provided callback on each element of an array.
+The querySelector() method returns the first element that matches one or more CSS selectors. If no match is found, it returns null.
 
-Map, reduce, and filter are all array methods in JavaScript. Each one will iterate over an array and perform a transformation or computation. Each will return a new array based on the result of the function.
+Before querySelector() was introduced, developers widely used the getElementById() method which fetches an element with a specified id value.
 
-&nbsp;
-
-The .map() method is used for creating a new array from an existing one, applying a function to each one of the elements of the first array.
-
-syntax:
-
-    var new_array = arr.map(function callback(element, index, array) {
-    // Return value for new_array
-    }[, thisArg])
-
-In the following example, odd numbers are "filtered" out, leaving only even numbers.
-
-    const numbers = [1, 2, 3, 4];
-    const doubled = numbers.map(item => item * 2);
-    console.log(doubled); // [2, 4, 6, 8]
+Although getElementById() is still a useful method, but with the newer querySelector() and querySelectorAll() methods we are free to target elements based on any CSS selector, thus we have more flexibility.
 
 &nbsp;
 
-The .filter() method takes each element in an array and it applies a conditional statement against it. If this conditional returns true, the element gets pushed to the output array. If the condition returns false, the element does not get pushed to the output array.
+    document.querySelector();
+    document.querySelectorAll();
 
-syntax:
+    //The most used to access the DOM, because with it you can access class, id and tag. So each case would be:
 
-    var new_array = arr.filter(function callback(element, index, array) {
-        // Return true or false
-    }[, thisArg])
+    document.querySelector('#id');
+    document.querySelector('.classname');
+    document.querySelector('section');
 
-In the following example, odd numbers are "filtered" out, leaving only even numbers.
+The querySelector() method returns the first element that matches a specified CSS selector(s) in the document.
 
-    const numbers = [1, 2, 3, 4];
-    const evens = numbers.filter(item => item % 2 === 0);
-    console.log(evens); // [2, 4]
-
-In the next example, filter() is used to get all the students whose grades are greater than or equal to 90.
-
-    const students = [
-    { name: 'Quincy', grade: 96 },
-    { name: 'Jason', grade: 84 },
-    { name: 'Alexis', grade: 100 },
-    { name: 'Sam', grade: 65 },
-    { name: 'Katie', grade: 90 }
-    ];
-
-    const studentGrades = students.filter(student => student.grade >= 90);
-    return studentGrades; // [ { name: 'Quincy', grade: 96 }, { name: 'Alexis', grade: 100 }, { name: 'Katie', grade: 90 } ]
+Note: The querySelector() method only returns the first element that matches the specified selectors. To return all the matches, use the querySelectorAll() method instead.
 
 &nbsp;
 
-The reduce() method reduces an array of values down to just one value. To get the output value, it runs a reducer function on each element of the array.
+## Event Listeners
 
-syntax:
+An event listener is a procedure or function in a computer program that waits for an event to occur. Examples of an event are the user clicking or moving the mouse, pressing a key on the keyboard, disk I/O, network activity, or an internal timer or interrupt. The listener is programmed to react to an input or signal by calling the event's handler.
 
-    arr.reduce(callback[, initialValue])
+The term event listener is often specific to Java and JavaScript. In other languages, a subroutine that performs a similar function is referred to as an event handler.
 
-The callback argument is a function that will be called once for every item in the array. This function takes four arguments, but often only the first two are used.
+The following JavaScript code would add an event listener to an HTML document:
 
-- accumulator - the returned value of the previous iteration
-- currentValue - the current item in the array
-- index - the index of the current item
-- array - the original array on which reduce was called
-- The initialValue argument is optional. If provided, it will be used as the initial accumulator value in the first call to the callback function.
+    document.addEventListener('click', myfunction, false);
 
-The following example adds every number together in an array of numbers.
-
-    const numbers = [1, 2, 3, 4];
-    const sum = numbers.reduce(function (result, item) {
-    return result + item;
-    }, 0);
-    console.log(sum); // 10
+In this example, when HTML is rendered in a browser, the listener calls the function "myfunction" (defined elsewhere in the script) when the user clicks.
 
 &nbsp;
 
-## .split() / .join()
+## Absolute Positioning In CSS
 
-The split() method splits a String object into an array of strings by separating the string into substrings.
+This is a very powerful type of positioning that allows you to literally place any page element exactly where you want it. You use the positioning attributes top, left, bottom, and right to set the location. Remember that these values will be relative to the next parent element with relative (or absolute) positioning. If there is no such parent, it will default all the way back up to the <html> element itself meaning it will be placed relative to the page itself.
 
-    let a = "asdasd|dasd|rttewrtert";
-
-    let b = a.split('|');
-    // ["asdasd", "dasd", "rttewrtert"]
-
-The join() method joins all elements of an array into a string.
-
-    let a = ["dasd", "rttewrtert"];
-
-    let c = c.join('');
-    // dasdrttewrtert
+The trade-off (and most important thing to remember) about absolute positioning is that these elements are removed from the flow of elements on the page. An element with this type of positioning is not affected by other elements and it doesn’t affect other elements. This is a serious thing to consider every time you use absolute positioning. Its overuse or improper use can limit the flexibility of your site.
 
 &nbsp;
 
-## Objects
+## Nested Event Listeners
 
-In JavaScript, almost "everything" is an object.
+    const button1 = document.querySelector('#button-1');
+    const button2 = document.querySelector('#button-2');
+    const output = document.querySelector('.output');
 
-- Booleans can be objects (if defined with the new keyword)
-- Numbers can be objects (if defined with the new keyword)
-- Strings can be objects (if defined with the new keyword)
-- Dates are always objects
-- Maths are always objects
-- Regular expressions are always objects
-- Arrays are always objects
-- Functions are always objects
-- Objects are always objects
+    // Example of nested event listener (not reccomended)
+    // The button2 eventListener will not be set until button1 is clicked
 
-All JavaScript values, except primitives, are objects.
+    button1.addEventListener('click', () => {
 
-JavaScript Primitives
+        output.style.backgroundColor = 'green';
 
-A primitive value is a value that has no properties or methods.
+        button2.addEventListener('click', () => {
+            output.style.backgroundColor = 'red';
+        });
 
-A primitive data type is data that has a primitive value.
-
-JavaScript defines 5 types of primitive data types:
-
-- string
-- number
-- boolean
-- null
-- undefined
-
-Objects are variables too. But objects can contain many values.
-
-The values are written as name : value pairs (name and value separated by a colon).
-
-    let person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
-
-The named values, in JavaScript objects, are called properties.
-
-- **Property** Value
-- **firstName** John
-- **lastName** Doe
-- **age** 50
-- **eyeColor** blue
+    });
 
 &nbsp;
 
-## Dot Notation, Bracket notation
+## Event
 
-There are two ways to access properties on an object:
+What is an Event ?
+JavaScript's interaction with HTML is handled through events that occur when the user or the browser manipulates a page.
 
-1.  Dot Notation
-2.  Bracket Notation
+When the page loads, it is called an event. When the user clicks a button, that click too is an event. Other examples include events like pressing any key, closing a window, resizing a window, etc.
 
-Dot notation is used most frequently.
+Developers can use these events to execute JavaScript coded responses, which cause buttons to close windows, messages to be displayed to users, data to be validated, and virtually any other type of response imaginable.
 
-This is the syntax:
-
-    objectName.propertyName;
-
-Here’s the syntax:
-
-    objectName["propertyName"].
-
-
-    let obj = {
-    cat: 'meow',
-    dog: 'woof'
-    };
-    let sound = obj.cat;
-    console.log(sound);
-    // meow
+Events are a part of the Document Object Model (DOM) Level 3 and every HTML element contains a set of events which can trigger JavaScript Code.
 
 &nbsp;
 
-Here’s an example of bracket notation.
+Examples
 
-    objectName["propertyName"].
+- onclick Event Type
+  This is the most frequently used event type which occurs when a user clicks the left button of his mouse.
 
-
-    let obj = {
-    cat: 'meow',
-    dog: 'woof'
-    };
-    let sound = obj['cat'];
-    console.log(sound);
-    // meow
+- onsubmit Event Type
+  onsubmit is an event that occurs when you try to submit a form.
 
 &nbsp;
 
-## Object looping
+## Target Event Property
 
-The JavaScript for...in statement loops through the properties of an object.
+The target event property returns the element that triggered the event.
 
-syntax:
+The target property gets the element on which the event originally occurred, opposed to the currentTarget property, which always refers to the element whose event listener triggered the event.
 
-    for (variable in object) {
-    // code to be executed
-    }
-
-
-    const object = { a: 1, b: 2, c: 3 };
-
-    for (const property in object) {
-    console.log(`${property}: ${object[property]}`);
-    }
-
-    // expected output:
-    // "a: 1"
-    // "b: 2"
-    // "c: 3"
+    event.target
 
 &nbsp;
 
-## Object Mutation
+## Creating DOM Elements
 
-Mutations happen when we change a JavaScript object or array without creating a new variable or reassigning an existing one:
+The createElement() method creates an Element Node with the specified name.
 
-    const puppy = {
-    name: 'Dessi',
-    age: 9
-    };
+    After the element is created, use the element.appendChild() or element.insertBefore() method to insert it to the document.
 
-    puppy.age = 10;
+    // Retrieves and style the 'container' element
+    const container = document.querySelector('#container');
+    container.style.padding = '20px';
+    container.style.backgroundColor = 'purple';
 
-Here we’re mutating the original puppy object by changing its age property.
+    // Creates a new element (not yet added to page)
+    const title = document.createElement('h1');
+    title.style.color = 'white';
+    title.style.fontFamily = 'Arial, sans-serif';
+    title.innerText = 'This is the best class ever!';
 
-Some of the problems with mutation:
+    // Adds an element to the page
+    container.appendChild(title);
 
-- Mutation may lead to unexpected and hard-to-debug issues, where data becomes incorrect somewhere, and you have no idea where it happens.
-- Mutation makes code harder to understand: at any time, an array or object may have a different value, so we need to be very careful when reading the code.
-- Mutation of function arguments makes the behavior of a function surprising.
+    // We can continue to modify title after its been added to the page
+    title.style.color = 'green';
 
-&nbsp;
-
-## Array Mutation
-
-JavaScript offers several ways to add, remove, and replace items in an array – but some of these ways mutate the array, and others are non-mutating; they produce a new array.
-
-Array mutation is basically changing the array itself instead of returning a new array with the new changes.
-
-The mutating methods for adding to an array are
-
-    array.push()
-
-    array.ushift().
-
-There are two ways to add new items to an array without mutating the original array.
-
-First, there is
-
-    array.concat().
-
-The second way to add to an array without mutating the original involves using JavaScript's spread operator. The spread operator is three dots (...) preceding an array.
-
-    // since we will not be mutating,
-    // use const
-
-    const arr1 = ['a', 'b', 'c', 'd', 'e'];
-
-    const arr2 = [...arr1, 'f']; // ['a', 'b', 'c', 'd', 'e', 'f']
-    const arr3 = ['z', ...arr1]; // ['z', 'a', 'b', 'c', 'd', 'e']
+    // To remove an element from the page
+    // title.remove();
